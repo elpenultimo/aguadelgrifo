@@ -3,6 +3,8 @@ import { paises } from "../data/paises";
 import { continentes } from "../data/continentes";
 import PaisSearch from "./components/PaisSearch";
 
+const INITIAL_COUNTRIES = 32;
+
 export default function HomePage() {
   return (
     <>
@@ -20,7 +22,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <PaisSearch countries={paises} />
+      <PaisSearch countries={paises} initialLimit={INITIAL_COUNTRIES} />
 
       <section>
         <h2>Explora por continente</h2>

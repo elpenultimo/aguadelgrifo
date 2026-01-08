@@ -9,6 +9,7 @@ type PaisSearchProps = {
   countries: Pais[];
   title?: string;
   placeholder?: string;
+  initialLimit?: number;
 };
 
 const statusLabels: Record<Pais["status"], string> = {
@@ -20,12 +21,16 @@ const statusLabels: Record<Pais["status"], string> = {
 export default function PaisSearch({
   countries,
   title = "Buscador de países",
-  placeholder = "Busca un país..."
+  placeholder = "Busca un país...",
+  initialLimit
 }: PaisSearchProps) {
   const [query, setQuery] = useState("");
   const [expandedSources, setExpandedSources] = useState<
     Record<string, boolean>
   >({});
+  const [visibleCount, setVisibleCount] = useState(
+    initialLimit ?? countries.length
+  );
 
   const filtered = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -33,6 +38,15 @@ export default function PaisSearch({
       normalized ? country.name.toLowerCase().includes(normalized) : true
     );
   }, [countries, query]);
+
+  const hasActiveQuery = query.trim().length > 0;
+  const isLimited = typeof initialLimit === "number";
+  const limitStep = initialLimit ?? filtered.length;
+  const visibleCountries =
+    hasActiveQuery || !isLimited
+      ? filtered
+      : filtered.slice(0, visibleCount);
+  const remainingCount = Math.max(filtered.length - visibleCount, 0);
 
   const toggleSources = (slug: string) => {
     setExpandedSources((current) => ({
@@ -55,7 +69,7 @@ export default function PaisSearch({
         <span className="subtle">Resultados: {filtered.length}</span>
       </p>
       <div className="grid">
-        {filtered.map((country) => {
+        {visibleCountries.map((country) => {
           const flag = getCountryFlagEmoji({
             slug: country.slug,
             name: country.name
@@ -114,6 +128,23 @@ export default function PaisSearch({
           );
         })}
       </div>
+      {isLimited && !hasActiveQuery && visibleCount < filtered.length ? (
+        <div>
+          <button
+            type="button"
+            onClick={() =>
+              setVisibleCount((current) =>
+                Math.min(current + limitStep, filtered.length)
+              )
+            }
+          >
+            Mostrar más países
+          </button>
+          {remainingCount > 0 ? (
+            <span className="subtle"> (quedan {remainingCount} países)</span>
+          ) : null}
+        </div>
+      ) : null}
     </section>
   );
 }
