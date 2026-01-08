@@ -5,6 +5,12 @@ import { continentes } from "../../../data/continentes";
 import { paises } from "../../../data/paises";
 import { buildContinentMetadata } from "../../../lib/seo";
 
+const statusLabels = {
+  si: "Sí",
+  depende: "Depende",
+  no: "No"
+} as const;
+
 export function generateStaticParams() {
   return continentes.map((continente) => ({ slug: continente.slug }));
 }
@@ -52,12 +58,8 @@ export default function ContinentePage({
             </h3>
             <p className="subtle">{pais.shortAnswer}</p>
             <div className="badge-group">
-              <span
-                className={`badge ${
-                  pais.isVerified ? "badge--verified" : "badge--pending"
-                }`}
-              >
-                {pais.isVerified ? "Verificado" : "Pendiente"}
+              <span className={`badge badge--status badge--${pais.status}`}>
+                {statusLabels[pais.status]}
               </span>
             </div>
             {pais.isVerified && pais.sources?.length ? (
