@@ -40,7 +40,10 @@ export default function PaisSearch({ countries }: { countries: Pais[] }) {
         value={query}
         onChange={(event) => setQuery(event.target.value)}
       />
-      <p className="subtle">Resultados: {filtered.length}</p>
+      <p className="results">
+        <span className="results__dot" aria-hidden="true" />
+        <span className="subtle">Resultados: {filtered.length}</span>
+      </p>
       <div className="grid">
         {filtered.map((country) => {
           const flag = getCountryFlagEmoji({
@@ -54,6 +57,10 @@ export default function PaisSearch({ countries }: { countries: Pais[] }) {
 
           return (
             <article key={country.slug} className="card">
+              <div
+                className={`card__status card__status--${country.status}`}
+                aria-hidden="true"
+              />
               <h3>
                 <Link href={`/pais/${country.slug}`}>{title}</Link>
               </h3>

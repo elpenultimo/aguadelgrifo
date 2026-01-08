@@ -6,15 +6,16 @@ import PaisSearch from "./components/PaisSearch";
 export default function HomePage() {
   return (
     <>
-      <section>
-        <h2>¿Es seguro beber agua del grifo?</h2>
-        <p className="subtle">
-          Consulta recomendaciones rápidas por país, con semáforo y consejos para
-          viajeros.
-        </p>
-        <p className="subtle">
-          Países: {paises.length}
-        </p>
+      <section className="hero">
+        <div className="hero__panel">
+          <h2>¿Es seguro beber agua del grifo?</h2>
+          <span className="hero__accent" aria-hidden="true" />
+          <p className="subtle">
+            Consulta recomendaciones rápidas por país, con semáforo y consejos
+            para viajeros.
+          </p>
+          <p className="subtle">Países: {paises.length}</p>
+        </div>
       </section>
 
       <PaisSearch countries={paises} />
