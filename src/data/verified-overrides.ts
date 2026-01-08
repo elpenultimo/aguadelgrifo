@@ -7,6 +7,7 @@ export type VerifiedOverride = {
 
 const updatedAt = "2025-01-10";
 const updatedAtBatch2 = "2026-01-08";
+const updatedAtBatch3 = "2026-01-08";
 
 const shortAnswers = {
   si: "En general el agua del grifo es potable en zonas urbanas, con posibles excepciones locales.",
@@ -712,5 +713,308 @@ export const VERIFIED_OVERRIDES: Record<string, VerifiedOverride> = {
     shortAnswer: shortAnswers.depende,
     updatedAt: updatedAtBatch2,
     sources: fcdp("aruba")
+  },
+  "bosnia-y-herzegovina": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("bosnia-and-herzegovina")
+  },
+  "macedonia-del-norte": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("north-macedonia")
+  },
+  moldavia: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("moldova")
+  },
+  bielorrusia: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("belarus")
+  },
+  montenegro: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("montenegro")
+  },
+  banglades: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("bangladesh")
+  },
+  pakistan: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("pakistan")
+  },
+  uzbekistan: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("uzbekistan")
+  },
+  kazajistan: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("kazakhstan")
+  },
+  kirguistan: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("kyrgyzstan")
+  },
+  tayikistan: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("tajikistan")
+  },
+  turkmenistan: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("turkmenistan")
+  },
+  mongolia: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("mongolia")
+  },
+  laos: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("laos")
+  },
+  myanmar: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("myanmar")
+  },
+  macao: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("macao")
+  },
+  brunei: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("brunei")
+  },
+  "el-salvador": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("el-salvador")
+  },
+  honduras: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("honduras")
+  },
+  nicaragua: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("nicaragua")
+  },
+  haiti: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("haiti")
+  },
+  "trinidad-y-tobago": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("trinidad-and-tobago")
+  },
+  "puerto-rico": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: usStateDept("puerto-rico")
+  },
+  senegal: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("senegal")
+  },
+  ghana: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("ghana")
+  },
+  "costa-de-marfil": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("cote-d-ivoire")
+  },
+  uganda: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("uganda")
+  },
+  ruanda: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("rwanda")
+  },
+  esuatini: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("eswatini")
+  },
+  lesoto: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("lesotho")
+  },
+  malaui: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("malawi")
+  },
+  zambia: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("zambia")
+  },
+  zimbabue: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("zimbabwe")
+  },
+  mozambique: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("mozambique")
+  },
+  namibia: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("namibia")
+  },
+  botsuana: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("botswana")
+  },
+  camerun: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("cameroon")
+  },
+  etiopia: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("ethiopia")
+  },
+  angola: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("angola")
+  },
+  nigeria: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("nigeria")
+  },
+  benin: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("benin")
+  },
+  togo: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("togo")
+  },
+  guinea: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("guinea")
+  },
+  "guinea-bisau": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("guinea-bissau")
+  },
+  gambia: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("gambia")
+  },
+  mauritania: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("mauritania")
+  },
+  sudan: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("sudan")
+  },
+  argelia: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("algeria")
+  },
+  madagascar: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("madagascar")
+  },
+  surinam: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("suriname")
   }
 };
+
+const existing = new Set(Object.keys(VERIFIED_OVERRIDES));
+void existing;
