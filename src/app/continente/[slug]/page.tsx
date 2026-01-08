@@ -46,10 +46,26 @@ export default function ContinentePage({
 
       <section className="grid">
         {countries.map((pais) => (
-          <Link key={pais.slug} href={`/pais/${pais.slug}`} className="card">
-            <h3>{pais.name}</h3>
+          <article key={pais.slug} className="card">
+            <h3>
+              <Link href={`/pais/${pais.slug}`}>{pais.name}</Link>
+            </h3>
             <p className="subtle">{pais.shortAnswer}</p>
-          </Link>
+            {pais.isVerified && pais.sources?.length ? (
+              <div className="sources">
+                <p className="sources__title">Fuentes</p>
+                <ul>
+                  {pais.sources.map((source) => (
+                    <li key={source.url}>
+                      <a href={source.url} target="_blank" rel="noreferrer">
+                        {source.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </article>
         ))}
       </section>
     </article>

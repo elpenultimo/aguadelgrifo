@@ -142,3 +142,21 @@ ul {
 .subtle {
   color: #475569;
 }
+
+.sources {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.sources__title {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+}
+
+.sources ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+}

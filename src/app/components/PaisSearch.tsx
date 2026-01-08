@@ -64,8 +64,10 @@ export default function PaisSearch({ countries }: { countries: Pais[] }) {
       <p className="subtle">Resultados: {filtered.length}</p>
       <div className="grid">
         {filtered.map((country) => (
-          <Link key={country.slug} href={`/pais/${country.slug}`} className="card">
-            <h3>{country.name}</h3>
+          <article key={country.slug} className="card">
+            <h3>
+              <Link href={`/pais/${country.slug}`}>{country.name}</Link>
+            </h3>
             <p className="subtle">{country.shortAnswer}</p>
             <div className="badge-group">
               <span className={`badge badge--${country.status}`}>
@@ -79,7 +81,21 @@ export default function PaisSearch({ countries }: { countries: Pais[] }) {
                 {country.isVerified ? "Verificado" : "Pendiente"}
               </span>
             </div>
-          </Link>
+            {country.isVerified && country.sources?.length ? (
+              <div className="sources">
+                <p className="sources__title">Fuentes</p>
+                <ul>
+                  {country.sources.map((source) => (
+                    <li key={source.url}>
+                      <a href={source.url} target="_blank" rel="noreferrer">
+                        {source.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </article>
         ))}
       </div>
     </section>

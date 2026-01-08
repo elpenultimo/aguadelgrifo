@@ -69,6 +69,21 @@ export default function PaisPage({ params }: { params: { slug: string } }) {
         <p className="subtle">Actualizado: {pais.updatedAt}</p>
       </section>
 
+      {pais.isVerified && pais.sources?.length ? (
+        <section className="sources">
+          <h3>Fuentes</h3>
+          <ul>
+            {pais.sources.map((source) => (
+              <li key={source.url}>
+                <a href={source.url} target="_blank" rel="noreferrer">
+                  {source.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
       <section>
         <h3>Consejo viajero</h3>
         <p>{travelAdvice[displayStatus]}</p>
