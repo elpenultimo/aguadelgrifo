@@ -6,6 +6,7 @@ export type VerifiedOverride = {
 };
 
 const updatedAt = "2025-01-10";
+const updatedAtBatch2 = "2026-01-08";
 
 const shortAnswers = {
   si: "En general el agua del grifo es potable en zonas urbanas, con posibles excepciones locales.",
@@ -591,5 +592,125 @@ export const VERIFIED_OVERRIDES: Record<string, VerifiedOverride> = {
     shortAnswer: shortAnswers.si,
     updatedAt,
     sources: fcdp("new-zealand")
+  },
+  luxemburgo: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("luxembourg")
+  },
+  monaco: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("monaco")
+  },
+  liechtenstein: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("liechtenstein")
+  },
+  malta: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("malta")
+  },
+  barein: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("bahrain")
+  },
+  andorra: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("andorra")
+  },
+  chipre: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("cyprus")
+  },
+  albania: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("albania")
+  },
+  georgia: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("georgia")
+  },
+  armenia: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("armenia")
+  },
+  azerbaiyan: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("azerbaijan")
+  },
+  belice: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("belize")
+  },
+  ecuador: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("ecuador")
+  },
+  bolivia: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("bolivia")
+  },
+  "cabo-verde": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("cape-verde")
+  },
+  fiyi: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("fiji")
+  },
+  "antigua-y-barbuda": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("antigua-and-barbuda")
+  },
+  dominica: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("dominica")
+  },
+  granada: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("grenada")
+  },
+  aruba: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch2,
+    sources: fcdp("aruba")
   }
 };
