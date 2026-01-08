@@ -8,6 +8,7 @@ export type VerifiedOverride = {
 const updatedAt = "2025-01-10";
 const updatedAtBatch2 = "2026-01-08";
 const updatedAtBatch3 = "2026-01-08";
+const updatedAtBatch4 = "2026-01-08";
 
 const shortAnswers = {
   si: "En general el agua del grifo es potable en zonas urbanas, con posibles excepciones locales.",
@@ -1313,6 +1314,300 @@ export const VERIFIED_OVERRIDES: Record<string, VerifiedOverride> = {
     shortAnswer: shortAnswers.depende,
     updatedAt: updatedAtBatch3,
     sources: fcdp("palau")
+  },
+  anguila: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("anguilla")
+  },
+  antartida: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("antarctica")
+  },
+  bonaire: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("bonaire-st-eustatius-saba")
+  },
+  gibraltar: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("gibraltar")
+  },
+  guadalupe: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("guadeloupe")
+  },
+  guam: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("guam")
+  },
+  "guayana-francesa": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("french-guiana")
+  },
+  guernsey: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("guernsey")
+  },
+  "isla-bouvet": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("bouvet-island")
+  },
+  "isla-de-navidad": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("christmas-island")
+  },
+  "isla-norfolk": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("norfolk-island")
+  },
+  "isla-de-man": {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("isle-of-man")
+  },
+  "isla-heard-y-mcdonald": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("heard-island-and-mcdonald-islands")
+  },
+  "islas-aland": {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("aland-islands")
+  },
+  "islas-cocos": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("cocos-keeling-islands")
+  },
+  "islas-cook": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("cook-islands")
+  },
+  "islas-feroe": {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("faroe-islands")
+  },
+  "islas-georgias-del-sur-y-sandwich-del-sur": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("south-georgia-and-the-south-sandwich-islands")
+  },
+  "islas-marianas-del-norte": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("northern-mariana-islands")
+  },
+  "islas-pitcairn": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("pitcairn-islands")
+  },
+  "islas-virgenes-britanicas": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("british-virgin-islands")
+  },
+  "islas-ultramarinas-menores-de-eeuu": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("united-states-minor-outlying-islands")
+  },
+  "islas-wallis-y-futuna": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("wallis-and-futuna")
+  },
+  jersey: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("jersey")
+  },
+  libano: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("lebanon")
+  },
+  martinica: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("martinique")
+  },
+  mayotte: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("mayotte")
+  },
+  montserrat: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("montserrat")
+  },
+  niue: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("niue")
+  },
+  "nueva-caledonia": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("new-caledonia")
+  },
+  paraguay: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("paraguay")
+  },
+  "polinesia-francesa": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("french-polynesia")
+  },
+  reunion: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("reunion")
+  },
+  "sahara-occidental": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("western-sahara")
+  },
+  "samoa-americana": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("american-samoa")
+  },
+  "san-bartolome": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("saint-barthelemy")
+  },
+  "san-marino": {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("san-marino")
+  },
+  "san-martin": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("saint-martin")
+  },
+  "san-pedro-y-miquelon": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("saint-pierre-and-miquelon")
+  },
+  "santa-elena": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("st-helena")
+  },
+  "sint-maarten": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("sint-maarten")
+  },
+  siria: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("syria")
+  },
+  "svalbard-y-jan-mayen": {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("svalbard-and-jan-mayen")
+  },
+  "territorio-britanico-del-oceano-indico": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("british-indian-ocean-territory")
+  },
+  "territorios-australes-franceses": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("french-southern-territories")
+  },
+  tokelau: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("tokelau")
+  },
+  uruguay: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("uruguay")
+  },
+  vaticano: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("holy-see")
+  },
+  venezuela: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch4,
+    sources: fcdp("venezuela")
   }
 };
 
