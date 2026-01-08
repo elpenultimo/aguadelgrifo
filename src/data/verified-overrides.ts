@@ -246,27 +246,51 @@ export const VERIFIED_OVERRIDES: Record<string, VerifiedOverride> = {
   },
   "paises-bajos": {
     status: "si",
-    shortAnswer: shortAnswers.si,
-    updatedAt,
-    sources: fcdp("netherlands")
+    shortAnswer:
+      "En general el agua del grifo es potable en la mayoría de zonas urbanas; aun así, confirma avisos locales.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/netherlands"
+      }
+    ]
   },
   belgica: {
     status: "si",
-    shortAnswer: shortAnswers.si,
-    updatedAt,
-    sources: fcdp("belgium")
+    shortAnswer:
+      "En general el agua del grifo es potable en la mayoría de zonas urbanas; aun así, confirma avisos locales.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/belgium"
+      }
+    ]
   },
   suiza: {
     status: "si",
-    shortAnswer: shortAnswers.si,
-    updatedAt,
-    sources: fcdp("switzerland")
+    shortAnswer:
+      "En general el agua del grifo es potable en la mayoría de zonas urbanas; aun así, confirma avisos locales.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/switzerland"
+      }
+    ]
   },
   austria: {
     status: "si",
-    shortAnswer: shortAnswers.si,
-    updatedAt,
-    sources: fcdp("austria")
+    shortAnswer:
+      "En general el agua del grifo es potable en la mayoría de zonas urbanas; aun así, confirma avisos locales.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/austria"
+      }
+    ]
   },
   irlanda: {
     status: "si",
@@ -276,81 +300,159 @@ export const VERIFIED_OVERRIDES: Record<string, VerifiedOverride> = {
   },
   islandia: {
     status: "si",
-    shortAnswer: shortAnswers.si,
-    updatedAt,
-    sources: fcdp("iceland")
+    shortAnswer:
+      "En general el agua del grifo es potable en la mayoría de zonas urbanas; aun así, confirma avisos locales.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/iceland"
+      }
+    ]
   },
   noruega: {
     status: "si",
-    shortAnswer: shortAnswers.si,
-    updatedAt,
-    sources: fcdp("norway")
+    shortAnswer:
+      "En general el agua del grifo es potable en la mayoría de zonas urbanas; aun así, confirma avisos locales.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/norway"
+      }
+    ]
   },
   suecia: {
     status: "si",
-    shortAnswer: shortAnswers.si,
-    updatedAt,
-    sources: fcdp("sweden")
+    shortAnswer:
+      "En general el agua del grifo es potable en la mayoría de zonas urbanas; aun así, confirma avisos locales.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/sweden"
+      }
+    ]
   },
   dinamarca: {
     status: "si",
-    shortAnswer: shortAnswers.si,
-    updatedAt,
-    sources: fcdp("denmark")
+    shortAnswer:
+      "En general el agua del grifo es potable en la mayoría de zonas urbanas; aun así, confirma avisos locales.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/denmark"
+      }
+    ]
   },
   finlandia: {
     status: "si",
-    shortAnswer: shortAnswers.si,
-    updatedAt,
-    sources: fcdp("finland")
+    shortAnswer:
+      "En general el agua del grifo es potable en la mayoría de zonas urbanas; aun así, confirma avisos locales.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/finland"
+      }
+    ]
   },
   polonia: {
     status: "depende",
-    shortAnswer: shortAnswers.depende,
-    updatedAt,
-    sources: fcdp("poland")
+    shortAnswer:
+      "La potabilidad puede variar por ciudad o edificio; verifica recomendaciones locales antes de consumir.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/poland"
+      }
+    ]
   },
   "republica-checa": {
     status: "depende",
-    shortAnswer: shortAnswers.depende,
-    updatedAt,
-    sources: fcdp("czech-republic")
+    shortAnswer:
+      "La potabilidad puede variar por ciudad o edificio; verifica recomendaciones locales antes de consumir.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/czech-republic"
+      }
+    ]
   },
   hungria: {
     status: "depende",
-    shortAnswer: shortAnswers.depende,
-    updatedAt,
-    sources: fcdp("hungary")
+    shortAnswer:
+      "La potabilidad puede variar por ciudad o edificio; verifica recomendaciones locales antes de consumir.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/hungary"
+      }
+    ]
   },
   eslovaquia: {
     status: "depende",
-    shortAnswer: shortAnswers.depende,
-    updatedAt,
-    sources: fcdp("slovakia")
+    shortAnswer:
+      "La potabilidad puede variar por ciudad o edificio; verifica recomendaciones locales antes de consumir.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/slovakia"
+      }
+    ]
   },
   eslovenia: {
     status: "depende",
-    shortAnswer: shortAnswers.depende,
-    updatedAt,
-    sources: fcdp("slovenia")
+    shortAnswer:
+      "La potabilidad puede variar por ciudad o edificio; verifica recomendaciones locales antes de consumir.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/slovenia"
+      }
+    ]
   },
   croacia: {
     status: "depende",
-    shortAnswer: shortAnswers.depende,
-    updatedAt,
-    sources: fcdp("croatia")
+    shortAnswer:
+      "La potabilidad puede variar por ciudad o edificio; verifica recomendaciones locales antes de consumir.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/croatia"
+      }
+    ]
   },
   grecia: {
     status: "depende",
-    shortAnswer: shortAnswers.depende,
-    updatedAt,
-    sources: fcdp("greece")
+    shortAnswer:
+      "La potabilidad puede variar por ciudad o isla; verifica recomendaciones locales antes de consumir.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/greece"
+      }
+    ]
   },
   turquia: {
     status: "depende",
-    shortAnswer: shortAnswers.depende,
-    updatedAt,
-    sources: fcdp("turkey")
+    shortAnswer:
+      "La potabilidad puede variar por ciudad; verifica recomendaciones locales antes de consumir.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/turkey"
+      }
+    ]
   },
   rusia: {
     status: "depende",
@@ -402,9 +504,15 @@ export const VERIFIED_OVERRIDES: Record<string, VerifiedOverride> = {
   },
   marruecos: {
     status: "no",
-    shortAnswer: shortAnswers.no,
-    updatedAt,
-    sources: fcdp("morocco")
+    shortAnswer:
+      "No suele recomendarse beber agua del grifo; opta por agua embotellada o tratada.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/morocco"
+      }
+    ]
   },
   tunez: {
     status: "no",
@@ -414,9 +522,15 @@ export const VERIFIED_OVERRIDES: Record<string, VerifiedOverride> = {
   },
   egipto: {
     status: "no",
-    shortAnswer: shortAnswers.no,
-    updatedAt,
-    sources: fcdp("egypt")
+    shortAnswer:
+      "No suele recomendarse beber agua del grifo; opta por agua embotellada o tratada.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/egypt"
+      }
+    ]
   },
   sudafrica: {
     status: "depende",
@@ -527,10 +641,16 @@ export const VERIFIED_OVERRIDES: Record<string, VerifiedOverride> = {
     sources: fcdp("nepal")
   },
   "emiratos-arabes-unidos": {
-    status: "si",
-    shortAnswer: shortAnswers.si,
-    updatedAt,
-    sources: fcdp("united-arab-emirates")
+    status: "depende",
+    shortAnswer:
+      "La potabilidad puede variar por edificio o zona; verifica recomendaciones locales antes de consumir.",
+    updatedAt: "2026-01-07",
+    sources: [
+      {
+        label: "FCDO",
+        url: "https://www.gov.uk/foreign-travel-advice/united-arab-emirates"
+      }
+    ]
   },
   catar: {
     status: "si",
