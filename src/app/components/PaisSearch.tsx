@@ -5,13 +5,23 @@ import Link from "next/link";
 import type { Pais } from "../../data/paises";
 import { getCountryFlagEmoji } from "../../lib/flags";
 
+type PaisSearchProps = {
+  countries: Pais[];
+  title?: string;
+  placeholder?: string;
+};
+
 const statusLabels: Record<Pais["status"], string> = {
   si: "Sí",
   depende: "Depende",
   no: "No"
 };
 
-export default function PaisSearch({ countries }: { countries: Pais[] }) {
+export default function PaisSearch({
+  countries,
+  title = "Buscador de países",
+  placeholder = "Busca un país..."
+}: PaisSearchProps) {
   const [query, setQuery] = useState("");
   const [expandedSources, setExpandedSources] = useState<
     Record<string, boolean>
@@ -33,10 +43,10 @@ export default function PaisSearch({ countries }: { countries: Pais[] }) {
 
   return (
     <section>
-      <h2>Buscador de países</h2>
+      <h2>{title}</h2>
       <input
         className="search-input"
-        placeholder="Busca un país..."
+        placeholder={placeholder}
         value={query}
         onChange={(event) => setQuery(event.target.value)}
       />

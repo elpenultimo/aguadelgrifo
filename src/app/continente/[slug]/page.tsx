@@ -1,38 +1,35 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import PaisSearch from "../../components/PaisSearch";
 import { continentes } from "../../../data/continentes";
 import { paises } from "../../../data/paises";
 import { buildContinentMetadata } from "../../../lib/seo";
-
-const statusLabels = {
-  si: "Sí",
-  depende: "Depende",
-  no: "No"
-} as const;
 
 export function generateStaticParams() {
   return continentes.map((continente) => ({ slug: continente.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params
 }: {
-  params: { slug: string };
-}): Metadata {
-  const continente = continentes.find((item) => item.slug === params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const continente = continentes.find((item) => item.slug === slug);
   if (!continente) {
     return { title: "Continente no encontrado" };
   }
   return buildContinentMetadata(continente.name);
 }
 
-export default function ContinentePage({
+export default async function ContinentePage({
   params
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const continente = continentes.find((item) => item.slug === params.slug);
+  const { slug } = await params;
+  const continente = continentes.find((item) => item.slug === slug);
   if (!continente) {
     notFound();
   }
@@ -44,49 +41,20 @@ export default function ContinentePage({
   return (
     <article>
       <section className="panel">
-        <h2>{continente.name}</h2>
+        <Link href="/" className="subtle">
+          ← Volver al buscador general
+        </Link>
+        <h1>Agua del grifo en {continente.name}</h1>
         <p className="subtle">
-          Selección de países y su recomendación general sobre el agua del grifo.
+          Listado de países y territorios con recomendación general.
         </p>
       </section>
 
-      <section className="grid">
-        {countries.map((pais) => (
-          <article key={pais.slug} className="card">
-            <div
-              className={`card__status card__status--${pais.status}`}
-              aria-hidden="true"
-            />
-            <h3>
-              <Link href={`/pais/${pais.slug}`}>{pais.name}</Link>
-            </h3>
-            <p className="subtle">{pais.shortAnswer}</p>
-            <div className="badge-group">
-              <span className={`badge badge--status badge--${pais.status}`}>
-                {statusLabels[pais.status]}
-              </span>
-            </div>
-            {pais.isVerified && pais.sources?.length ? (
-              <div className="sources">
-                <p className="sources__title">Fuentes</p>
-                <ul>
-                  {pais.sources.map((source) => (
-                    <li key={source.url}>
-                      <a
-                        href={source.url}
-                        target="_blank"
-                        rel="nofollow noopener"
-                      >
-                        {source.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </article>
-        ))}
-      </section>
+      <PaisSearch
+        countries={countries}
+        title={`Buscador en ${continente.name}`}
+        placeholder={`Busca un país en ${continente.name}...`}
+      />
     </article>
   );
 }
