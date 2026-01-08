@@ -1013,6 +1013,306 @@ export const VERIFIED_OVERRIDES: Record<string, VerifiedOverride> = {
     shortAnswer: shortAnswers.no,
     updatedAt: updatedAtBatch3,
     sources: fcdp("suriname")
+  },
+  libia: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("libya")
+  },
+  mali: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("mali")
+  },
+  niger: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("niger")
+  },
+  "burkina-faso": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("burkina-faso")
+  },
+  "sierra-leona": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("sierra-leone")
+  },
+  liberia: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("liberia")
+  },
+  "republica-centroafricana": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("central-african-republic")
+  },
+  chad: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("chad")
+  },
+  "sudan-del-sur": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("south-sudan")
+  },
+  eritrea: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("eritrea")
+  },
+  somalia: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("somalia")
+  },
+  yibuti: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("djibouti")
+  },
+  "republica-democratica-del-congo": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("democratic-republic-of-the-congo")
+  },
+  congo: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("congo")
+  },
+  guyana: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("guyana")
+  },
+  "santa-lucia": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("saint-lucia")
+  },
+  "san-vicente-y-las-granadinas": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("saint-vincent-and-the-grenadines")
+  },
+  "san-cristobal-y-nieves": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("saint-kitts-and-nevis")
+  },
+  bermudas: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("bermuda")
+  },
+  curazao: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("curacao")
+  },
+  "islas-caiman": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("cayman-islands")
+  },
+  kuwait: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("kuwait")
+  },
+  irak: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("iraq")
+  },
+  iran: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("iran")
+  },
+  afganistan: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("afghanistan")
+  },
+  butan: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("bhutan")
+  },
+  "timor-oriental": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("timor-leste")
+  },
+  yemen: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("yemen")
+  },
+  palestina: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("the-occupied-palestinian-territories")
+  },
+  "papua-nueva-guinea": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("papua-new-guinea")
+  },
+  samoa: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("samoa")
+  },
+  tonga: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("tonga")
+  },
+  vanuatu: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("vanuatu")
+  },
+  "islas-salomon": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("solomon-islands")
+  },
+  comoras: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("comoros")
+  },
+  "santo-tome-y-principe": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("sao-tome-and-principe")
+  },
+  "guinea-ecuatorial": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("equatorial-guinea")
+  },
+  gabon: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("gabon")
+  },
+  burundi: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("burundi")
+  },
+  "corea-del-norte": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("north-korea")
+  },
+  micronesia: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("micronesia")
+  },
+  kiribati: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("kiribati")
+  },
+  tuvalu: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("tuvalu")
+  },
+  nauru: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("nauru")
+  },
+  "islas-marshall": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("marshall-islands")
+  },
+  "islas-malvinas": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("falkland-islands")
+  },
+  groenlandia: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("greenland")
+  },
+  "islas-turcas-y-caicos": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("turks-and-caicos-islands")
+  },
+  "islas-virgenes-eeuu": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("virgin-islands-us")
+  },
+  palaos: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt: updatedAtBatch3,
+    sources: fcdp("palau")
   }
 };
 
