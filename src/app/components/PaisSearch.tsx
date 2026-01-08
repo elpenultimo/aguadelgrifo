@@ -87,7 +87,11 @@ export default function PaisSearch({ countries }: { countries: Pais[] }) {
                 <ul>
                   {country.sources.map((source) => (
                     <li key={source.url}>
-                      <a href={source.url} target="_blank" rel="noreferrer">
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="nofollow noopener"
+                      >
                         {source.label}
                       </a>
                     </li>
