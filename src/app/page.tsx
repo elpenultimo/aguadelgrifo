@@ -12,6 +12,7 @@ export default function HomePage() {
           Consulta recomendaciones rápidas por país, con semáforo y consejos para
           viajeros.
         </p>
+        <p className="subtle">Total de países: {paises.length}</p>
       </section>
 
       <PaisSearch countries={paises} />
