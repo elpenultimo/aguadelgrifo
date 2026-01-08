@@ -33,9 +33,10 @@ export function generateMetadata({
       title: "País no encontrado"
     };
   }
+  const displayStatus = pais.isVerified ? pais.status : "depende";
   return buildCountryMetadata(
     pais.name,
-    statusLabels[pais.status],
+    statusLabels[displayStatus],
     pais.shortAnswer
   );
 }
@@ -49,12 +50,19 @@ export default function PaisPage({ params }: { params: { slug: string } }) {
   const continente = continentes.find(
     (item) => item.slug === pais.continentSlug
   );
+  const displayStatus = pais.isVerified ? pais.status : "depende";
 
   return (
     <article>
+      {!pais.isVerified && (
+        <p className="notice">
+          ⚠️ Esta ficha está pendiente de verificación. Usa esta guía como
+          orientación general para viajeros.
+        </p>
+      )}
       <section>
-        <p className={`badge badge--${pais.status}`}>
-          {statusLabels[pais.status]}
+        <p className={`badge badge--${displayStatus}`}>
+          {statusLabels[displayStatus]}
         </p>
         <h2>¿Se puede beber agua del grifo en {pais.name}?</h2>
         <p>{pais.shortAnswer}</p>
@@ -63,7 +71,7 @@ export default function PaisPage({ params }: { params: { slug: string } }) {
 
       <section>
         <h3>Consejo viajero</h3>
-        <p>{travelAdvice[pais.status]}</p>
+        <p>{travelAdvice[displayStatus]}</p>
       </section>
 
       <section>
