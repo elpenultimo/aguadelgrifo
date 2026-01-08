@@ -1,172 +1,595 @@
-import type { EstadoAgua, Pais } from "./paises";
-
 export type VerifiedOverride = {
-  status: EstadoAgua;
+  status: "si" | "depende" | "no";
   shortAnswer: string;
+  sources: { label: string; url: string }[];
   updatedAt: string;
-  sources: NonNullable<Pais["sources"]>;
 };
 
-const globalSources: NonNullable<Pais["sources"]> = [
+const updatedAt = "2025-01-10";
+
+const shortAnswers = {
+  si: "En general el agua del grifo es potable en zonas urbanas, con posibles excepciones locales.",
+  depende:
+    "La potabilidad varía por ciudad e infraestructura; confirma recomendaciones locales antes de consumir.",
+  no: "En general no se recomienda beber agua del grifo; usa agua embotellada o tratada."
+} as const;
+
+const fcdp = (slug: string) => [
   {
-    label: "OMS - Guías para la calidad del agua potable",
-    url: "https://www.who.int/publications/i/item/9789240045064"
-  },
-  {
-    label: "CDC - Drinking Water (Travelers' Health)",
-    url: "https://wwwnc.cdc.gov/travel/page/safe-water"
+    label: "UK FCDO Travel Advice",
+    url: `https://www.gov.uk/foreign-travel-advice/${slug}`
   }
 ];
 
+const usStateDept = (slug: string) => [
+  {
+    label: "US State Dept - Travel Advisory",
+    url: `https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/${slug}-travel-advisory.html`
+  }
+];
+
+export const TOP80_SLUGS = [
+  "estados-unidos",
+  "canada",
+  "mexico",
+  "brasil",
+  "argentina",
+  "chile",
+  "peru",
+  "colombia",
+  "costa-rica",
+  "panama",
+  "republica-dominicana",
+  "cuba",
+  "jamaica",
+  "bahamas",
+  "barbados",
+  "guatemala",
+  "espana",
+  "francia",
+  "italia",
+  "portugal",
+  "reino-unido",
+  "alemania",
+  "paises-bajos",
+  "belgica",
+  "suiza",
+  "austria",
+  "irlanda",
+  "islandia",
+  "noruega",
+  "suecia",
+  "dinamarca",
+  "finlandia",
+  "polonia",
+  "republica-checa",
+  "hungria",
+  "eslovaquia",
+  "eslovenia",
+  "croacia",
+  "grecia",
+  "turquia",
+  "rusia",
+  "ucrania",
+  "bulgaria",
+  "rumania",
+  "serbia",
+  "estonia",
+  "letonia",
+  "lituania",
+  "marruecos",
+  "tunez",
+  "egipto",
+  "sudafrica",
+  "kenia",
+  "tanzania",
+  "seychelles",
+  "mauricio",
+  "china",
+  "japon",
+  "corea-del-sur",
+  "india",
+  "tailandia",
+  "vietnam",
+  "indonesia",
+  "malasia",
+  "singapur",
+  "filipinas",
+  "camboya",
+  "sri-lanka",
+  "nepal",
+  "emiratos-arabes-unidos",
+  "catar",
+  "arabia-saudita",
+  "israel",
+  "jordania",
+  "oman",
+  "maldivas",
+  "hong-kong",
+  "taiwan",
+  "australia",
+  "nueva-zelanda"
+];
+
 export const VERIFIED_OVERRIDES: Record<string, VerifiedOverride> = {
-  chile: {
-    status: "si",
-    shortAnswer: "En la mayoría de las ciudades el agua es potable y segura.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
-  },
-  mexico: {
-    status: "no",
-    shortAnswer: "No se recomienda beber agua del grifo de forma general.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
-  },
-  argentina: {
-    status: "depende",
-    shortAnswer: "Depende de la ciudad y el sistema local de tratamiento.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
-  },
-  peru: {
-    status: "no",
-    shortAnswer: "No suele ser segura para viajeros en la mayoría de regiones.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
-  },
-  bolivia: {
-    status: "no",
-    shortAnswer: "Se recomienda evitar el agua del grifo.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
-  },
-  colombia: {
-    status: "depende",
-    shortAnswer: "Ciudades principales suelen ser seguras, otras zonas no.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
-  },
-  ecuador: {
-    status: "no",
-    shortAnswer: "No es recomendable beber agua del grifo.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
-  },
-  venezuela: {
-    status: "no",
-    shortAnswer: "La calidad del agua es irregular y no se aconseja.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
-  },
-  uruguay: {
-    status: "si",
-    shortAnswer: "El agua del grifo es potable en la mayoría de zonas urbanas.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
-  },
-  paraguay: {
-    status: "depende",
-    shortAnswer: "La seguridad varía según la ciudad y la red de agua.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
-  },
   "estados-unidos": {
     status: "si",
-    shortAnswer: "Generalmente segura, con excepciones locales.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("united-states")
   },
   canada: {
     status: "si",
-    shortAnswer: "El agua del grifo suele ser segura y regulada.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("canada")
+  },
+  mexico: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("mexico")
+  },
+  brasil: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("brazil")
+  },
+  argentina: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("argentina")
+  },
+  chile: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("chile")
+  },
+  peru: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("peru")
+  },
+  colombia: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("colombia")
+  },
+  "costa-rica": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("costa-rica")
+  },
+  panama: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("panama")
+  },
+  "republica-dominicana": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("dominican-republic")
+  },
+  cuba: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("cuba")
+  },
+  jamaica: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("jamaica")
+  },
+  bahamas: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("bahamas")
+  },
+  barbados: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("barbados")
+  },
+  guatemala: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("guatemala")
   },
   espana: {
     status: "si",
-    shortAnswer: "Agua potable en todo el país, con variaciones de sabor.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("spain")
   },
   francia: {
     status: "si",
-    shortAnswer: "El agua del grifo es segura en todo el país.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("france")
   },
   italia: {
     status: "si",
-    shortAnswer: "El agua del grifo es segura en la mayoría de ciudades.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("italy")
   },
   portugal: {
     status: "si",
-    shortAnswer: "Agua del grifo generalmente segura para consumo.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("portugal")
   },
   "reino-unido": {
     status: "si",
-    shortAnswer: "Agua potable en todo el país con controles estrictos.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: usStateDept("united-kingdom")
   },
   alemania: {
     status: "si",
-    shortAnswer: "El agua del grifo es segura y de alta calidad.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("germany")
   },
-  japon: {
+  "paises-bajos": {
     status: "si",
-    shortAnswer: "El agua del grifo es potable en la mayoría de ciudades.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("netherlands")
   },
-  china: {
-    status: "no",
-    shortAnswer: "No se recomienda beber agua del grifo sin tratamiento.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
-  },
-  india: {
-    status: "no",
-    shortAnswer: "No es segura para consumo directo.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
-  },
-  tailandia: {
-    status: "no",
-    shortAnswer: "Se recomienda evitar el agua del grifo.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
-  },
-  australia: {
+  belgica: {
     status: "si",
-    shortAnswer: "El agua del grifo es segura en la mayoría de regiones.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("belgium")
   },
-  "nueva-zelanda": {
+  suiza: {
     status: "si",
-    shortAnswer: "Agua potable en general, con controles locales.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("switzerland")
+  },
+  austria: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("austria")
+  },
+  irlanda: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("ireland")
+  },
+  islandia: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("iceland")
+  },
+  noruega: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("norway")
+  },
+  suecia: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("sweden")
+  },
+  dinamarca: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("denmark")
+  },
+  finlandia: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("finland")
+  },
+  polonia: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("poland")
+  },
+  "republica-checa": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("czech-republic")
+  },
+  hungria: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("hungary")
+  },
+  eslovaquia: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("slovakia")
+  },
+  eslovenia: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("slovenia")
+  },
+  croacia: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("croatia")
+  },
+  grecia: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("greece")
+  },
+  turquia: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("turkey")
+  },
+  rusia: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("russia")
+  },
+  ucrania: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("ukraine")
+  },
+  bulgaria: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("bulgaria")
+  },
+  rumania: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("romania")
+  },
+  serbia: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("serbia")
+  },
+  estonia: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("estonia")
+  },
+  letonia: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("latvia")
+  },
+  lituania: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("lithuania")
+  },
+  marruecos: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("morocco")
+  },
+  tunez: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("tunisia")
+  },
+  egipto: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("egypt")
   },
   sudafrica: {
     status: "depende",
-    shortAnswer: "Varía por ciudad; zonas rurales pueden no ser seguras.",
-    updatedAt: "2024-06-01",
-    sources: globalSources
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("south-africa")
+  },
+  kenia: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("kenya")
+  },
+  tanzania: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("tanzania")
+  },
+  seychelles: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("seychelles")
+  },
+  mauricio: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("mauritius")
+  },
+  china: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("china")
+  },
+  japon: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("japan")
+  },
+  "corea-del-sur": {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("south-korea")
+  },
+  india: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("india")
+  },
+  tailandia: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("thailand")
+  },
+  vietnam: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("vietnam")
+  },
+  indonesia: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("indonesia")
+  },
+  malasia: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("malaysia")
+  },
+  singapur: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("singapore")
+  },
+  filipinas: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("philippines")
+  },
+  camboya: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("cambodia")
+  },
+  "sri-lanka": {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("sri-lanka")
+  },
+  nepal: {
+    status: "no",
+    shortAnswer: shortAnswers.no,
+    updatedAt,
+    sources: fcdp("nepal")
+  },
+  "emiratos-arabes-unidos": {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("united-arab-emirates")
+  },
+  catar: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("qatar")
+  },
+  "arabia-saudita": {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("saudi-arabia")
+  },
+  israel: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("israel")
+  },
+  jordania: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("jordan")
+  },
+  oman: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("oman")
+  },
+  maldivas: {
+    status: "depende",
+    shortAnswer: shortAnswers.depende,
+    updatedAt,
+    sources: fcdp("maldives")
+  },
+  "hong-kong": {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("hong-kong")
+  },
+  taiwan: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("taiwan")
+  },
+  australia: {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("australia")
+  },
+  "nueva-zelanda": {
+    status: "si",
+    shortAnswer: shortAnswers.si,
+    updatedAt,
+    sources: fcdp("new-zealand")
   }
 };

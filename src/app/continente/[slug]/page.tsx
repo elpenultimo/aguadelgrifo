@@ -51,13 +51,26 @@ export default function ContinentePage({
               <Link href={`/pais/${pais.slug}`}>{pais.name}</Link>
             </h3>
             <p className="subtle">{pais.shortAnswer}</p>
+            <div className="badge-group">
+              <span
+                className={`badge ${
+                  pais.isVerified ? "badge--verified" : "badge--pending"
+                }`}
+              >
+                {pais.isVerified ? "Verificado" : "Pendiente"}
+              </span>
+            </div>
             {pais.isVerified && pais.sources?.length ? (
               <div className="sources">
                 <p className="sources__title">Fuentes</p>
                 <ul>
                   {pais.sources.map((source) => (
                     <li key={source.url}>
-                      <a href={source.url} target="_blank" rel="noreferrer">
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="nofollow noopener"
+                      >
                         {source.label}
                       </a>
                     </li>
