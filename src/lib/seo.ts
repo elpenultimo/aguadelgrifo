@@ -29,7 +29,17 @@ export const buildCountryMetadata = (
   }
 });
 
-export const buildContinentMetadata = (continentName: string): Metadata => ({
-  title: `${continentName} | ${BASE_TITLE}`,
-  description: `Países y recomendaciones sobre agua del grifo en ${continentName}.`
-});
+export const buildContinentMetadata = (continentName: string): Metadata => {
+  const title = `¿Es seguro beber agua del grifo en ${continentName}? | ${BASE_TITLE}`;
+  const description = `Recomendaciones rápidas sobre si se puede beber agua del grifo en países y territorios de ${continentName}.`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "article"
+    }
+  };
+};
