@@ -22,6 +22,19 @@ const countrySeeds = countries as Array<
   Pick<Pais, "name" | "slug" | "continentSlug">
 >;
 
+const validSlugs = new Set(countrySeeds.map((country) => country.slug));
+const invalidVerifiedOverrides = Object.keys(VERIFIED_OVERRIDES).filter(
+  (slug) => !validSlugs.has(slug)
+);
+
+if (invalidVerifiedOverrides.length > 0) {
+  console.warn(
+    `[verified-overrides] Slugs no encontrados: ${invalidVerifiedOverrides.join(
+      ", "
+    )}`
+  );
+}
+
 export const paises: Pais[] = countrySeeds.map((country) => {
   const override = VERIFIED_OVERRIDES[country.slug];
   if (override) {
