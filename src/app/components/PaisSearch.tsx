@@ -12,49 +12,17 @@ const statusLabels: Record<Pais["status"], string> = {
 
 export default function PaisSearch({ countries }: { countries: Pais[] }) {
   const [query, setQuery] = useState("");
-  const [showVerified, setShowVerified] = useState(true);
-  const [showPending, setShowPending] = useState(true);
 
   const filtered = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return countries.filter((country) => {
-      const matchesQuery = normalized
-        ? country.name.toLowerCase().includes(normalized)
-        : true;
-      const matchesVerification =
-        (country.isVerified && showVerified) ||
-        (!country.isVerified && showPending);
-      return matchesQuery && matchesVerification;
-    });
-  }, [countries, query, showPending, showVerified]);
-
-  const verifiedCount = useMemo(
-    () => countries.filter((country) => country.isVerified).length,
-    [countries]
-  );
-  const pendingCount = countries.length - verifiedCount;
+    return countries.filter((country) =>
+      normalized ? country.name.toLowerCase().includes(normalized) : true
+    );
+  }, [countries, query]);
 
   return (
     <section>
       <h2>Buscador de países</h2>
-      <div className="filter-chips">
-        <button
-          type="button"
-          className={`chip ${showVerified ? "chip--active" : ""}`}
-          aria-pressed={showVerified}
-          onClick={() => setShowVerified((value) => !value)}
-        >
-          Verificados ({verifiedCount})
-        </button>
-        <button
-          type="button"
-          className={`chip ${showPending ? "chip--active" : ""}`}
-          aria-pressed={showPending}
-          onClick={() => setShowPending((value) => !value)}
-        >
-          Pendientes ({pendingCount})
-        </button>
-      </div>
       <input
         className="search-input"
         placeholder="Busca un país..."
@@ -70,7 +38,9 @@ export default function PaisSearch({ countries }: { countries: Pais[] }) {
             </h3>
             <p className="subtle">{country.shortAnswer}</p>
             <div className="badge-group">
-              <span className={`badge badge--${country.status}`}>
+              <span
+                className={`badge badge--status badge--${country.status}`}
+              >
                 {statusLabels[country.status]}
               </span>
               <span

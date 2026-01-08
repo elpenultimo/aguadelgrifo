@@ -4,7 +4,6 @@ import { continentes } from "../data/continentes";
 import PaisSearch from "./components/PaisSearch";
 
 export default function HomePage() {
-  const verifiedCount = paises.filter((pais) => pais.isVerified).length;
   return (
     <>
       <section>
@@ -14,7 +13,7 @@ export default function HomePage() {
           viajeros.
         </p>
         <p className="subtle">
-          Verificados: {verifiedCount} / Total: {paises.length}
+          Países: {paises.length}
         </p>
       </section>
 

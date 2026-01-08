@@ -61,7 +61,7 @@ export default function PaisPage({ params }: { params: { slug: string } }) {
         </p>
       )}
       <section>
-        <p className={`badge badge--${displayStatus}`}>
+        <p className={`badge badge--status badge--${displayStatus}`}>
           {statusLabels[displayStatus]}
         </p>
         <h2>¿Se puede beber agua del grifo en {pais.name}?</h2>
