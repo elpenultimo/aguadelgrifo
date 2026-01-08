@@ -4,6 +4,7 @@ import Link from "next/link";
 import { paises } from "../../../data/paises";
 import { continentes } from "../../../data/continentes";
 import { buildCountryMetadata } from "../../../lib/seo";
+import { getCountryFlagEmoji } from "../../../lib/flags";
 
 const statusLabels = {
   si: "Sí",
@@ -51,6 +52,8 @@ export default function PaisPage({ params }: { params: { slug: string } }) {
     (item) => item.slug === pais.continentSlug
   );
   const displayStatus = pais.isVerified ? pais.status : "depende";
+  const flag = getCountryFlagEmoji({ slug: pais.slug, name: pais.name });
+  const title = flag ? `${flag} ${pais.name}` : pais.name;
 
   return (
     <article>
@@ -60,17 +63,22 @@ export default function PaisPage({ params }: { params: { slug: string } }) {
           orientación general para viajeros.
         </p>
       )}
-      <section>
+      <section className="panel">
         <p className={`badge badge--status badge--${displayStatus}`}>
           {statusLabels[displayStatus]}
         </p>
-        <h2>¿Se puede beber agua del grifo en {pais.name}?</h2>
+        <div className="detail-header">
+          <h2 className="detail-title">
+            ¿Se puede beber agua del grifo en {title}?
+          </h2>
+        </div>
+        <div className="detail-accent" aria-hidden="true" />
         <p>{pais.shortAnswer}</p>
         <p className="subtle">Actualizado: {pais.updatedAt}</p>
       </section>
 
       {pais.isVerified && pais.sources?.length ? (
-        <section className="sources">
+        <section className="sources panel">
           <h3>Fuentes</h3>
           <ul>
             {pais.sources.map((source) => (
@@ -84,12 +92,12 @@ export default function PaisPage({ params }: { params: { slug: string } }) {
         </section>
       ) : null}
 
-      <section>
+      <section className="panel">
         <h3>Consejo viajero</h3>
         <p>{travelAdvice[displayStatus]}</p>
       </section>
 
-      <section>
+      <section className="panel">
         <h3>Alternativas seguras</h3>
         <ul>
           <li>Agua embotellada sellada.</li>
@@ -99,7 +107,7 @@ export default function PaisPage({ params }: { params: { slug: string } }) {
       </section>
 
       {continente && (
-        <section>
+        <section className="panel">
           <h3>Más países de {continente.name}</h3>
           <Link href={`/continente/${continente.slug}`}>
             Ver recomendaciones del continente

@@ -43,7 +43,7 @@ export default function ContinentePage({
 
   return (
     <article>
-      <section>
+      <section className="panel">
         <h2>{continente.name}</h2>
         <p className="subtle">
           Selección de países y su recomendación general sobre el agua del grifo.
@@ -53,6 +53,10 @@ export default function ContinentePage({
       <section className="grid">
         {countries.map((pais) => (
           <article key={pais.slug} className="card">
+            <div
+              className={`card__status card__status--${pais.status}`}
+              aria-hidden="true"
+            />
             <h3>
               <Link href={`/pais/${pais.slug}`}>{pais.name}</Link>
             </h3>
