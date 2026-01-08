@@ -133,6 +133,20 @@ ul {
   border-top: 1px solid #e2e8f0;
 }
 
+.sources__toggle {
+  background: #f1f5f9;
+  border: 1px solid #cbd5f5;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sources__toggle:hover {
+  background: #e2e8f0;
+}
+
 .sources__title {
   margin: 0 0 0.5rem;
   font-weight: 600;
