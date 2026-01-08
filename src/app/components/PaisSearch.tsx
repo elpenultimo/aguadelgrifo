@@ -64,13 +64,6 @@ export default function PaisSearch({ countries }: { countries: Pais[] }) {
                 >
                   {statusLabels[country.status]}
                 </span>
-                <span
-                  className={`badge ${
-                    country.isVerified ? "badge--verified" : "badge--pending"
-                  }`}
-                >
-                  {country.isVerified ? "Verificado" : "Pendiente"}
-                </span>
               </div>
               {hasSources ? (
                 <div className="sources">
