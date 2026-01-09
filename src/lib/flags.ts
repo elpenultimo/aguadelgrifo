@@ -58,7 +58,7 @@ export const getFlagEmojiFromIso2 = (iso2: string): string | null => {
   return chars.join("");
 };
 
-export const getCountryFlagEmoji = ({
+export const getIso2ForCountry = ({
   iso2,
   slug,
   name
@@ -68,7 +68,8 @@ export const getCountryFlagEmoji = ({
   name?: string;
 }): string | null => {
   if (iso2) {
-    return getFlagEmojiFromIso2(iso2);
+    const normalized = iso2.trim().toUpperCase();
+    return /^[A-Z]{2}$/.test(normalized) ? normalized : null;
   }
 
   const resolvedSlug = slug ?? (name ? slugify(name) : undefined);
@@ -76,10 +77,18 @@ export const getCountryFlagEmoji = ({
     return null;
   }
 
-  const resolvedIso = isoBySlug[resolvedSlug];
-  if (!resolvedIso) {
-    return null;
-  }
+  return isoBySlug[resolvedSlug] ?? null;
+};
 
-  return getFlagEmojiFromIso2(resolvedIso);
+export const getCountryFlagEmoji = ({
+  iso2,
+  slug,
+  name
+}: {
+  iso2?: string;
+  slug?: string;
+  name?: string;
+}): string | null => {
+  const resolvedIso = getIso2ForCountry({ iso2, slug, name });
+  return resolvedIso ? getFlagEmojiFromIso2(resolvedIso) : null;
 };

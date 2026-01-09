@@ -56,10 +56,12 @@ export default function PaisSearch({
   };
 
   return (
-    <section>
+    <section id="pais-search">
       <h2>{title}</h2>
       <input
+        id="pais-search-input"
         className="search-input"
+        aria-label="Buscar país"
         placeholder={placeholder}
         value={query}
         onChange={(event) => setQuery(event.target.value)}

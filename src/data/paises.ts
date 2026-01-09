@@ -1,4 +1,5 @@
 import countries from "./countries-es.json";
+import { getIso2ForCountry } from "../lib/flags";
 import { VERIFIED_OVERRIDES } from "./verified-overrides";
 
 export type EstadoAgua = "si" | "depende" | "no";
@@ -7,6 +8,7 @@ export type Pais = {
   name: string;
   slug: string;
   continentSlug: string;
+  iso2?: string;
   status: EstadoAgua;
   shortAnswer: string;
   updatedAt: string;
@@ -23,10 +25,12 @@ const countrySeeds = countries as Array<
 >;
 
 export const paises: Pais[] = countrySeeds.map((country) => {
+  const iso2 = getIso2ForCountry({ slug: country.slug, name: country.name });
   const override = VERIFIED_OVERRIDES[country.slug];
   if (override) {
     return {
       ...country,
+      iso2,
       status: override.status,
       shortAnswer: override.shortAnswer,
       updatedAt: override.updatedAt,
@@ -37,6 +41,7 @@ export const paises: Pais[] = countrySeeds.map((country) => {
 
   return {
     ...country,
+    iso2,
     status: "depende",
     shortAnswer: neutralShortAnswer,
     updatedAt: today,
