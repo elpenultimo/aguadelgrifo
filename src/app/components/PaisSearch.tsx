@@ -131,14 +131,18 @@ export default function PaisSearch({
             {isExpanded ? (
               <ul id={sourcesId}>
                 {country.sources?.map((source) => (
-                  <li key={source.url}>
-                    <a
-                      href={source.url}
-                      target="_blank"
-                      rel="nofollow noopener"
-                    >
-                      {source.label}
-                    </a>
+                  <li key={source.url ?? source.label}>
+                    {source.url ? (
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="nofollow noopener"
+                      >
+                        {source.label}
+                      </a>
+                    ) : (
+                      <span>{source.label}</span>
+                    )}
                   </li>
                 ))}
               </ul>
