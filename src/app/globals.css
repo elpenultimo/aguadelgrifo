@@ -184,6 +184,74 @@ ul {
   box-shadow: 0 16px 32px rgba(15, 23, 42, 0.1);
 }
 
+.highlight-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border-left: 4px solid var(--gold-accent);
+}
+
+.highlight-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.highlight-card__title {
+  margin: 0;
+  font-weight: 700;
+  color: var(--primary-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+.highlight-card__country {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--deep-blue);
+}
+
+.highlight-card__meta {
+  font-size: 0.9rem;
+}
+
+.highlight-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.button--primary {
+  background: var(--primary-blue);
+  color: #ffffff;
+}
+
+.button--primary:hover {
+  background: var(--mid-blue);
+}
+
+.link-inline {
+  color: var(--mid-blue);
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
 .card__status {
   position: absolute;
   top: 0;

@@ -1,11 +1,28 @@
 import Link from "next/link";
 import { paises } from "../data/paises";
 import { continentes } from "../data/continentes";
+import { getGeoCountry } from "../lib/geo";
+import { getCountryFlagEmoji } from "../lib/flags";
+import FocusSearchLink from "./components/FocusSearchLink";
 import PaisSearch from "./components/PaisSearch";
 
 const INITIAL_COUNTRIES = 32;
 
-export default function HomePage() {
+export default async function HomePage() {
+  const geo = await getGeoCountry();
+  const matchedCountry = geo?.iso2
+    ? paises.find(
+        (country) => country.iso2?.toUpperCase() === geo.iso2.toUpperCase()
+      )
+    : null;
+  const flag = matchedCountry
+    ? getCountryFlagEmoji({
+        iso2: matchedCountry.iso2,
+        slug: matchedCountry.slug,
+        name: matchedCountry.name
+      })
+    : null;
+
   return (
     <>
       <section className="hero">
@@ -21,6 +38,37 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      {matchedCountry ? (
+        <section aria-label="Ubicación detectada">
+          <div className="card highlight-card">
+            <div className="highlight-card__info">
+              <p className="highlight-card__title">Tu ubicación</p>
+              <p className="highlight-card__country">
+                {flag ? `${flag} ` : ""}
+                {matchedCountry.name}
+              </p>
+              <span className="subtle highlight-card__meta">
+                Detección aproximada
+              </span>
+            </div>
+            <div className="highlight-card__actions">
+              <Link
+                href={`/pais/${matchedCountry.slug}`}
+                className="button button--primary"
+              >
+                Ver recomendación
+              </Link>
+              <FocusSearchLink
+                targetId="pais-search-input"
+                className="link-inline"
+              >
+                ¿No es tu país? Elige otro
+              </FocusSearchLink>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <PaisSearch countries={paises} initialLimit={INITIAL_COUNTRIES} />
 
