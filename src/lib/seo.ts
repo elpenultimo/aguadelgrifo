@@ -18,16 +18,26 @@ export const buildBaseMetadata = (): Metadata => ({
 export const buildCountryMetadata = (
   name: string,
   statusLabel: string,
-  shortAnswer: string
-): Metadata => ({
-  title: `${name}: ${statusLabel} beber agua del grifo | ${BASE_TITLE}`,
-  description: shortAnswer,
-  openGraph: {
-    title: `${name}: ${statusLabel} beber agua del grifo`,
-    description: shortAnswer,
-    type: "article"
-  }
-});
+  slug: string
+): Metadata => {
+  const title = `¿Se puede beber agua del grifo en ${name}? | ${BASE_TITLE}`;
+  const description = `${statusLabel}. Recomendaciones para viajeros sobre el agua del grifo en ${name}.`;
+  const url = `/pais/${slug}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: url
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "article"
+    }
+  };
+};
 
 export const buildContinentMetadata = (continentName: string): Metadata => {
   const title = `¿Es seguro beber agua del grifo en ${continentName}? | ${BASE_TITLE}`;

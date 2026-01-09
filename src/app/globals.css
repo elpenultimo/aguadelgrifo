@@ -416,6 +416,19 @@ ul {
   flex-wrap: wrap;
 }
 
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+}
+
+.back-link:hover {
+  color: var(--deep-blue);
+}
+
 .detail-title {
   margin: 0;
   font-size: clamp(1.8rem, 1.2rem + 1vw, 2.3rem);
@@ -427,6 +440,18 @@ ul {
   background: var(--gold-accent);
   border-radius: 999px;
   margin: 0.75rem 0 1.25rem;
+}
+
+.badge-hero {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.badge--hero {
+  font-size: 1.35rem;
+  padding: 0.5rem 1.6rem;
+  border-radius: 999px;
 }
 
 .panel {

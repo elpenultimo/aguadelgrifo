@@ -13,7 +13,7 @@ export type Pais = {
   shortAnswer: string;
   updatedAt: string;
   isVerified: boolean;
-  sources?: { label: string; url: string }[];
+  sources?: { label: string; url?: string }[];
 };
 
 const neutralShortAnswer =

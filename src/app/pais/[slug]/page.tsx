@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { paises } from "../../../data/paises";
 import { continentes } from "../../../data/continentes";
+import { getCountryBySlug } from "../../../lib/countries";
 import { buildCountryMetadata } from "../../../lib/seo";
 import { getCountryFlagEmoji } from "../../../lib/flags";
+import { paises } from "../../../data/paises";
 
 const statusLabels = {
   si: "Sí",
@@ -19,31 +20,51 @@ const travelAdvice = {
   no: "Utiliza agua embotellada o tratada incluso para cepillarte los dientes."
 } as const;
 
+const quickTips = {
+  si: [
+    "En general es potable, pero revisa avisos locales recientes.",
+    "Prefiere agua fría del grifo y deja correr unos segundos.",
+    "Si tienes dudas, usa filtro portátil en excursiones."
+  ],
+  no: [
+    "Evita agua del grifo; usa embotellada sellada.",
+    "Cuidado con el hielo en bebidas y jugos.",
+    "Para cepillarte los dientes, usa agua segura."
+  ],
+  depende: [
+    "Varía por ciudad; en la capital suele ser mejor.",
+    "Consulta en el alojamiento antes de consumir.",
+    "Lleva botella con filtro para trayectos largos."
+  ]
+} as const;
+
 export function generateStaticParams() {
   return paises.map((pais) => ({ slug: pais.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params
 }: {
-  params: { slug: string };
-}): Metadata {
-  const pais = paises.find((item) => item.slug === params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const pais = getCountryBySlug(slug);
   if (!pais) {
     return {
       title: "País no encontrado"
     };
   }
   const displayStatus = pais.isVerified ? pais.status : "depende";
-  return buildCountryMetadata(
-    pais.name,
-    statusLabels[displayStatus],
-    pais.shortAnswer
-  );
+  return buildCountryMetadata(pais.name, statusLabels[displayStatus], pais.slug);
 }
 
-export default function PaisPage({ params }: { params: { slug: string } }) {
-  const pais = paises.find((item) => item.slug === params.slug);
+export default async function PaisPage({
+  params
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const pais = getCountryBySlug(slug);
   if (!pais) {
     notFound();
   }
@@ -57,6 +78,9 @@ export default function PaisPage({ params }: { params: { slug: string } }) {
 
   return (
     <article>
+      <Link href="/" className="back-link">
+        ← Volver
+      </Link>
       {!pais.isVerified && (
         <p className="notice">
           ⚠️ Esta ficha está pendiente de verificación. Usa esta guía como
@@ -64,28 +88,44 @@ export default function PaisPage({ params }: { params: { slug: string } }) {
         </p>
       )}
       <section className="panel">
-        <p className={`badge badge--status badge--${displayStatus}`}>
-          {statusLabels[displayStatus]}
-        </p>
         <div className="detail-header">
-          <h2 className="detail-title">
-            ¿Se puede beber agua del grifo en {title}?
-          </h2>
+          <h1 className="detail-title">{title}</h1>
         </div>
         <div className="detail-accent" aria-hidden="true" />
+        <div className="badge-hero">
+          <span className={`badge badge--status badge--${displayStatus} badge--hero`}>
+            {statusLabels[displayStatus]}
+          </span>
+        </div>
+        <p className="subtle">
+          ¿Se puede beber agua del grifo en {pais.name}?
+        </p>
         <p>{pais.shortAnswer}</p>
         <p className="subtle">Actualizado: {pais.updatedAt}</p>
       </section>
 
-      {pais.isVerified && pais.sources?.length ? (
+      <section className="panel">
+        <h3>Consejos rápidos</h3>
+        <ul>
+          {quickTips[displayStatus].map((tip) => (
+            <li key={tip}>{tip}</li>
+          ))}
+        </ul>
+      </section>
+
+      {pais.sources?.length ? (
         <section className="sources panel">
           <h3>Fuentes</h3>
           <ul>
             {pais.sources.map((source) => (
-              <li key={source.url}>
-                <a href={source.url} target="_blank" rel="nofollow noopener">
-                  {source.label}
-                </a>
+              <li key={source.url ?? source.label}>
+                {source.url ? (
+                  <a href={source.url} target="_blank" rel="nofollow noopener">
+                    {source.label}
+                  </a>
+                ) : (
+                  <span>{source.label}</span>
+                )}
               </li>
             ))}
           </ul>
@@ -110,7 +150,7 @@ export default function PaisPage({ params }: { params: { slug: string } }) {
         <section className="panel">
           <h3>Más países de {continente.name}</h3>
           <Link href={`/continente/${continente.slug}`}>
-            Ver recomendaciones del continente
+            Ver países de {continente.name}
           </Link>
         </section>
       )}
