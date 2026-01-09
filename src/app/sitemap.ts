@@ -2,12 +2,15 @@ import type { MetadataRoute } from "next";
 import { continentes } from "../data/continentes";
 import { paises } from "../data/paises";
 
+const PRODUCTION_SITE_URL =
+  process.env.NEXT_PUBLIC_PRODUCTION_URL ?? "https://aguadelgrifo.com";
+
 const getBaseUrl = (): string => {
-  const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000");
+  const siteUrl = PRODUCTION_SITE_URL || process.env.NEXT_PUBLIC_SITE_URL;
+
+  if (!siteUrl) {
+    throw new Error("Missing site URL for sitemap generation.");
+  }
 
   return siteUrl.replace(/\/$/, "");
 };
@@ -20,20 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/`,
       lastModified,
-      changeFrequency: "yearly",
+      changeFrequency: "monthly",
       priority: 1.0
-    },
-    {
-      url: `${baseUrl}/que-es-agua-del-grifo`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.5
-    },
-    {
-      url: `${baseUrl}/fuentes`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.5
     }
   ];
 
@@ -41,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}/continente/${continente.slug}`,
     lastModified,
     changeFrequency: "monthly",
-    priority: 0.8
+    priority: 0.6
   }));
 
   const countryPages: MetadataRoute.Sitemap = paises.map((pais) => ({

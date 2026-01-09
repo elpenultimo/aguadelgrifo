@@ -1,11 +1,14 @@
 import type { MetadataRoute } from "next";
 
+const PRODUCTION_SITE_URL =
+  process.env.NEXT_PUBLIC_PRODUCTION_URL ?? "https://aguadelgrifo.com";
+
 const getBaseUrl = (): string => {
-  const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000");
+  const siteUrl = PRODUCTION_SITE_URL || process.env.NEXT_PUBLIC_SITE_URL;
+
+  if (!siteUrl) {
+    throw new Error("Missing site URL for robots.txt generation.");
+  }
 
   return siteUrl.replace(/\/$/, "");
 };
