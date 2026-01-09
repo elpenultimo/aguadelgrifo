@@ -46,6 +46,21 @@ const buildIsoBySlug = (): Record<string, string> => {
 
 const isoBySlug = buildIsoBySlug();
 
+export const getIso2ForCountry = ({
+  slug,
+  name
+}: {
+  slug?: string;
+  name?: string;
+}): string | null => {
+  const resolvedSlug = slug ?? (name ? slugify(name) : undefined);
+  if (!resolvedSlug) {
+    return null;
+  }
+
+  return isoBySlug[resolvedSlug] ?? null;
+};
+
 export const getFlagEmojiFromIso2 = (iso2: string): string | null => {
   const normalized = iso2.trim().toUpperCase();
   if (!/^[A-Z]{2}$/.test(normalized)) {
