@@ -3,7 +3,7 @@ import { paises } from "../data/paises";
 import { continentes } from "../data/continentes";
 import PaisSearch from "./components/PaisSearch";
 
-const INITIAL_COUNTRIES = 32;
+const INITIAL_COUNTRIES = 24;
 
 export default function HomePage() {
   return (
